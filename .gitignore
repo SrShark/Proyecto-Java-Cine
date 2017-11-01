@@ -1,8 +1,2 @@
-*html
-
-// Java
-*.class
-
-// Intellij IDEA
-*.iml
-*.xml
+.idea/
+out/
