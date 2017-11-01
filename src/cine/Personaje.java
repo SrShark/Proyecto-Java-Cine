@@ -19,28 +19,39 @@ public class Personaje {
         this.actor = actor;
     }
 
-    public List<Personaje> buscarPersonajesSegunRoles(List<Personaje> listaPersonajes, Rol rolReferencia)
-    {
-        System.out.println("Buscando Personajes de ROl: " + rolReferencia.getNombre());
-        List<Personaje> listaPersonajeConRol = new ArrayList();
+    public List<Personaje> buscarPersonajesSegunRoles(List<Personaje> listaPersonajes, Rol rol) {
+        System.out.printf("Buscando Personajes de Rol: %s \n", rol.getNombre());
+
+        // Lista a retornar
+        List<Personaje> listaPersonajeConRol = new ArrayList<Personaje>();
+
+        // Recorro la lista de personajes
         for (Personaje personaje : listaPersonajes)
         {
-            if (personaje.getRol().getNombre().equals(rolReferencia.getNombre()))
+            // Comparo el rol de cada personaje con el rol de referencia que llega como parametro del metodo.
+            if (personaje.getRol().getNombre().equals(rol.getNombre()))
             {
                 listaPersonajeConRol.add(personaje);
                 System.out.println(personaje.toString());
             }
         }
+
         return listaPersonajeConRol;
     }
 
-    public List<Personaje> buscarPersonajesPorRol(List<Personaje> listaPersonajes, List<Rol> listaRoles){
+    public List<Personaje> FiltrarPersonajesPorRol(List<Personaje> listaPersonajes, List<Rol> listaRoles) {
+        // Lista a retornar
         List<Personaje> listaPersonajesFiltrados = new ArrayList<Personaje>();
 
-        for (Rol roles : listaRoles)
-        {
+        // Recorro los roles y los personajes de las listas.
+        for (Rol roles : listaRoles) {
+            // Imprimo el rol a filtrar
+            System.out.printf("Rol: %s\n", roles.getNombre());
+
+            // Recorro los personajes
             for (Personaje pj : listaPersonajes) {
-//                System.out.println("el rol es: " + roles.getNombre());
+
+                // Filtro por roles que en el momento se esta buscando y los asigno en orgen en la lista a retornar.
                 if (roles.getNombre().equals(pj.getRol().getNombre()))
                 {
                     listaPersonajesFiltrados.add(pj);
@@ -53,15 +64,17 @@ public class Personaje {
         return listaPersonajesFiltrados;
     }
 
-
-
     @Override
     public String toString() {
-        String msj = String.format("el actor %s tiene el rol %s", getActor().getNombre(), getRol().getNombre());
+        String msj = String.format(
+                "El actor %s tiene el rol '%s'",
+                getActor().getNombre(),
+                getRol().getNombre()
+        );
         return msj;
     }
 
-    // GET AND SET
+    // GETERS AND SETERS
     public String getNombreEnPelicula() {
         return nombreEnPelicula;
     }

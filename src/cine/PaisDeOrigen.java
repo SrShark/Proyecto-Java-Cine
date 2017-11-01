@@ -4,7 +4,9 @@ public class PaisDeOrigen {
     private String idioma;
     private String nombre;
 
-    public PaisDeOrigen() {
+    public PaisDeOrigen(String nombre, String idioma) {
+        this.nombre = nombre;
+        this.idioma = idioma;
     }
 
     public String getIdioma() {

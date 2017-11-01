@@ -9,13 +9,6 @@ public class Actor {
     private boolean animado;
     private Sexo sexo; // Relación de Asociación
 
-    public Actor(String nombre, String apellido, boolean animado, Sexo sexo) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.animado = animado;
-        this.sexo = sexo;
-    }
-
     public Actor(String nombre, Sexo sexo) {
         this.nombre = nombre;
         this.sexo = sexo;
@@ -36,7 +29,11 @@ public class Actor {
 
     @Override
     public String toString() {
-        String msj = String.format("el actor %s es de sexo %s", getNombre(), getSexo().getNombre());
+        String msj = String.format(
+                "el actor %s es de sexo %s",
+                getNombre(),
+                getSexo().getNombre()
+        );
         return msj;
     }
 

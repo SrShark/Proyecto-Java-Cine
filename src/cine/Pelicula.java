@@ -27,6 +27,31 @@ public class Pelicula {
         this.paisDeOrigen = paisDeOrigen;
     }
 
+    public Pelicula(Date anioEstreno, short duracion, Date fechaIngreso, String nombre, Genero genero, Calificacion calificacion, PaisDeOrigen paisDeOrigen) {
+        this.anioEstreno = anioEstreno;
+        this.duracion = duracion;
+        this.fechaIngreso = fechaIngreso;
+        this.nombre = nombre;
+        this.genero = genero;
+        this.calificacion = calificacion;
+        this.paisDeOrigen = paisDeOrigen;
+    }
+
+    @Override
+    public String toString() {
+        String msj = String.format(
+                "la pelicula '%s' ingreso al cine en %s, tiene una duración de: %d min. y se estrenó en: %s. Su genero es: %s, Calificación: %s y proviene de: %s.",
+                getNombre(),
+                getFechaIngreso(),
+                getDuracion(),
+                getFechaIngreso(),
+                getGenero().getNombre(),
+                getCalificacion().getNombre(),
+                getPaisDeOrigen().getNombre()
+        );
+        return msj;
+    }
+
     public Date getAnioEstreno() {
         return anioEstreno;
     }
