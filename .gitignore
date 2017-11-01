@@ -1,0 +1,8 @@
+*html
+
+// Java
+*.class
+
+// Intellij IDEA
+*.iml
+*.xml
